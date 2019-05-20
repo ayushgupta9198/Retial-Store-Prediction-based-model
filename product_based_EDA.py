@@ -1,30 +1,30 @@
-import pandas as pd
+import pandas as pd # Import required packages
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 import numpy as np
 from pylab import rcParams
 import statsmodels.api as sm
 
-df1 = pd.read_csv('C:\\Users\\Ayush gupta\\Documents\\Project Data.csv')
+df1 = pd.read_csv('C:\\Users\\Ayush gupta\\Documents\\Project Data.csv') # Import the data 
 df = pd.DataFrame(df1)
 df['transactionDate'] = pd.to_datetime(df['transactionDate'])
 # print(df['transactionDate'].min())
 # print(df['transactionDate'].max())
 
 cols=['customerID','DOB','Gender','store_code','PinCode','store_description',
-      'till_no','transaction_number_by_till','promotion_description']
+      'till_no','transaction_number_by_till','promotion_description'] # Import columns in list
 df.drop(cols,axis=1,inplace=True)
 df=df.sort_values('transactionDate')
-# print(df[:].isnull().sum())
+# print(df[:].isnull().sum())   # print null values
 
 df=df.groupby('transactionDate')["sales"].sum().reset_index()
 df=df.set_index('transactionDate')
-# print(df['product_description'].value_counts()[:10])
+# print(df['product_description'].value_counts()[:10]) # print product discriptipn with value from start to end date
 start='2015-06-01'
 end='2017-06-30'
 df=df.loc[start:end]
 
-# print(df.index)
+# print(df.index) # print with pyplot
 y = df['sales'].resample('MS').mean()
 #
 # y1=y['2015-01-01':'2015-12-31']
@@ -57,4 +57,5 @@ plt.show()
 # plt.title('Item')
 # plt.show()
 
-# print(y.head())
+# print(y.head()) # print top vlaues in head 
+
