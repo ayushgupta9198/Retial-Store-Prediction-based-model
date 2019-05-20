@@ -5,7 +5,7 @@ import numpy as np
 from pylab import rcParams
 import statsmodels.api as sm
 
-df1 = pd.read_csv('C:\\Users\\Prince\\Downloads\\cproducts.csv')
+df1 = pd.read_csv('C:\\Users\\Ayush gupta\\Documents\\Project Data.csv')
 df = pd.DataFrame(df1)
 df['transactionDate'] = pd.to_datetime(df['transactionDate'])
 # print(df['transactionDate'].min())
