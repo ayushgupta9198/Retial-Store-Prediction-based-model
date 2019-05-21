@@ -1,9 +1,9 @@
-import pandas as pd
+import pandas as pd # Import required packages
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 import numpy as np
 
-'''Gender base plotting'''
+'''Gender base plotting''' #Sex Ratio Distriubution of the sale
 def gender_plot(self):
         df['Gender'].fillna(method='ffill',inplace=True)
         gender_data= plt.pie(df['Gender'].value_counts(),
@@ -14,7 +14,7 @@ def gender_plot(self):
                         startangle=90)
         return(gender_data)
 
-'''Age base plotting'''
+'''Age base plotting''' #Age Groups Frequency Distribution
 '''For filling blank dates(NAN) and NANA values'''
 def age_group(self):
         df['DOB'].fillna(method='ffill',inplace=True)
